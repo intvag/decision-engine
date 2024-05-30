@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/intvag/decision-engine/service";
+
+// Quotes is a service which returns quotes for items
+service Quotes {
+  rpc GetQuote(Input) returns (Quote) {}
+}
+
+message Input {
+  double expected_lifetime = 1;
+  double age = 2;
+  double purchase_price = 3;
+  double lastability = 4;
+  double repairability = 5;
+}
+
+message Quote {
+  double monthly = 1;
+}
